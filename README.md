@@ -1,2 +1,2 @@
-# PythonFunctionsArguments
-In this repository we will learn the use of python functions with different type of arguments
+# Python Language
+python is very easy programming language
