@@ -12,10 +12,10 @@ for i in range(10):
         print("your point is=",point)
         break
     elif g>=f:
-        print("your guess is high")
+        print("your guess is high, go lower")
         point-=10
     else:
-        print("your guess is low")
+        print("your guess is low, go higher")
         point-=10
 else:
     print("you lost")
