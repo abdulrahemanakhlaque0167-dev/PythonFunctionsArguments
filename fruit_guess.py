@@ -1,5 +1,12 @@
 import random
-f=["apple","banana","mango","watermelon","strawberry","kiwi","orange","grapes","pineapple","peach"]
+f=[
+    "apple", "banana", "mango", "orange", "grapes",
+    "pineapple", "watermelon", "papaya", "guava", "strawberry",
+    "cherry", "peach", "pear", "melon", "kiwi",
+    "coconut", "lemon", "lime", "pomegranate", "fig",
+    "date", "avocado", "jackfruit", "lychee", "raspberry",
+    "blueberry", "blackberry", "cantaloupe", "muskmelon", "tangerine"
+]
 l=random.choice(f)
 k=100
 for i in range(5):
@@ -26,7 +33,7 @@ for i in range(5):
             print("the fruit is like",h3)
         elif i==3:
             h4=l[0]
-            for j in range(len(l)-3):
+            for j in range(len(l)-2):
                 h4=h4+'*'
             print("the fruit ends with",l[-1])
             print("the name is like",h4+l[-1])
