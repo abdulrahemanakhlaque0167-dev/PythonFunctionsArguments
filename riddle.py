@@ -25,6 +25,7 @@ elif l=="fish":
     print("I live in water and I can swim. What am I?")
 else:
     print()
+    
 
 
 while True:

@@ -8,3 +8,4 @@ One of the biggest advantages of Python is its simple and clear syntax. Programs
 Python is used by students, teachers, researchers, and professional software developers. Many companies use Python to develop applications and analyze large amounts of data. It is also commonly used to automate repetitive tasks, which can save time and effort.
 
 In conclusion, Python is a powerful, flexible, and easy-to-learn programming language. Its simplicity and wide range of applications have made it one of the most important programming languages today. Learning Python can help students develop problem-solving and programming skills and can provide a strong foundation for a future career in technology.
+

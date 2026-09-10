@@ -6,3 +6,4 @@ for i in range(1,11):
     print(e,"multiplied by",i,"is:",i*e)
 print("square of number is=",sq)
 print("cube of the number is=",c)
+

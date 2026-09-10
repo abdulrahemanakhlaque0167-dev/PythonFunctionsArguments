@@ -6,3 +6,4 @@ elif a>=2026:
     print("how can you be born after 2026 ")
 else:
     print("if you were born in the year",a,"your age is",h)
+    

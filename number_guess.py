@@ -20,3 +20,4 @@ for i in range(10):
 else:
     print("you lost")
     print("you got 0 points")
+    
