@@ -3,7 +3,7 @@ f=[
     "apple", "banana", "mango", "orange", "grapes",
     "pineapple", "watermelon", "papaya", "guava", "strawberry",
     "cherry", "peach", "pear", "melon", "kiwi",
-    "coconut", "lemon", "lime", "pomegranate", "fig",
+    "coconut", "lemon", "lime", "pomegranate",
     "date", "avocado", "jackfruit", "lychee", "raspberry",
     "blueberry", "blackberry", "cantaloupe", "muskmelon", "tangerine"
 ]
@@ -27,16 +27,19 @@ for i in range(5):
             print("the fruit starts with",h2)
         elif i==2:
             h3=l[0]
-            for j in range(len(l)-1):
-                h3=h3+'*'
-            print("the third hint is")
-            print("the fruit is like",h3)
-        elif i==3:
-            h4=l[0]
             for j in range(len(l)-2):
-                h4=h4+'*'
+                h3=h3+'*'
             print("the fruit ends with",l[-1])
+            print("the name is like",h3+l[-1])
+        elif i==3:
+            h4=l[0]+l[1]
+            for j in range(len(l)-3):
+                h4=h4+'*'
+            print("the fruit is like",l[-1])
             print("the name is like",h4+l[-1])
+            
+
+            
         else:
             print("you lost")
             print("the fruit was",l)
