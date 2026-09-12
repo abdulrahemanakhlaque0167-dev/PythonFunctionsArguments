@@ -35,7 +35,6 @@ for i in range(5):
             h4=l[0]+l[1]
             for j in range(len(l)-3):
                 h4=h4+'*'
-            print("the fruit is like",l[-1])
             print("the name is like",h4+l[-1])          
         else:
             print("you lost")
