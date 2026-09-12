@@ -8,6 +8,7 @@ print("try to guess it as early as possible")
 for i in range(10):
     g=int(input("enter the guess: "))
     if g==f:
+        print("congratulations you won")
         print("you won in",i,"attemps")
         print("your point is=",point)
         break
