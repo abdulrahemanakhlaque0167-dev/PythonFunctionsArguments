@@ -5,7 +5,7 @@ f=[
     "cherry", "peach", "pear", "melon", "kiwi",
     "coconut", "lemon", "lime", "pomegranate",
     "date", "avocado", "jackfruit", "lychee", "raspberry",
-    "blueberry", "blackberry", "cantaloupe", "muskmelon", "tangerine"
+    "blueberry", "blackberry",  "muskmelon", "tangerine"
 ]
 l=random.choice(f)
 k=100
