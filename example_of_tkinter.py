@@ -38,7 +38,7 @@ l1.grid(row=0,column=0)
 e1=Entry(l,font=("Calibri",18,"bold"))
 e1.grid(row=0,column=1,pady=10)
 
-l2=Label(l,text="Enter your Email",font=("calibri",18,"bold"))
+l2=Label(l,text="Enter your Age",font=("calibri",18,"bold"))
 l2.grid(row=1,column=0)
 e2=Entry(l,font=("calibri",18,"bold"))
 e2.grid(row=1,column=1,pady=10)
