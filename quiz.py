@@ -151,9 +151,3 @@ elif d=='d':
 else:
     print("the input is not among e,m or d")
 
-
-
-
-
-'''
-'''

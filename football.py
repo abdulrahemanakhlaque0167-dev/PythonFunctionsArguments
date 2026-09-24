@@ -1,4 +1,5 @@
 import random
+
 print("welcome to the the penalty shooting game")
 print("you get 1 point on every goal")
 s=["l","r","c"]

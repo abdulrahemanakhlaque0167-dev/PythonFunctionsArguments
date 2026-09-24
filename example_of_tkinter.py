@@ -46,3 +46,4 @@ e2.grid(row=1,column=1,pady=10)
 l1=Button(l,text="Click for Submit",font=("calibri",18,"bold"),padx=20)
 l1.grid(row=2,column=1,pady=10)
 l.mainloop()
+

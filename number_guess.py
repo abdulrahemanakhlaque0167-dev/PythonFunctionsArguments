@@ -1,23 +1,21 @@
 import random
-f=random.randint(1,100)
-point=100
 print("welcome to the number guessing game")
-print("you have ten tries to guess the number")
-print("each wrong decreases 10 point from total 100 points")
 print("try to guess it as early as possible")
-for i in range(10):
+h=int(input("enter the the number from 1 to anything you want in which the number will generate that you have to guess: "))
+q=int(input("enter the number of  attemps you want: "))
+f=random.randint(1,h)
+
+
+for i in range(q):
     g=int(input("enter the guess: "))
     if g==f:
         print("congratulations you won")
         print("you won in",i,"attemps")
-        print("your point is=",point)
         break
     elif g>=f:
         print("your guess is high, go lower")
-        point-=10
     else:
         print("your guess is low, go higher")
-        point-=10
 else:
     print("you lost")
     print("you got 0 points")

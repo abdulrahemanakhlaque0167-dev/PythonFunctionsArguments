@@ -42,8 +42,3 @@ for i in range(5):
             print("you got 0 points")
     else:
         pass
-
-
-    
-    
-        

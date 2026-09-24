@@ -16,8 +16,6 @@ if x=='left':
             print("you chose the deadly path")
             print("there were tigers who attacked you")
             print("you died")
-        elif v=='two':
-            print("you chose the safe door")
             print("congratulations, you made your way out safely")
         else:
             print("something went wrong")
@@ -60,7 +58,6 @@ elif x=='right':
         print("something went wrong")
 else:
     print("something went wrong")
-
 
 
 

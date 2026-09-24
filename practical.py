@@ -1,4 +1,3 @@
-
 f=int(input("enter the number for increaing lines: "))
 
 for i in range(1,f+1):
