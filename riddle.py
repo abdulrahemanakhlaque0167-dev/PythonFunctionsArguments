@@ -30,7 +30,6 @@ else:
 
 while True:
     g=(input("enter a answer to guess: "))
-    
     if g!=l:
         print("wrong answer")
     elif g==l:
