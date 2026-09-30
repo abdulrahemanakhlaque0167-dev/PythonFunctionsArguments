@@ -46,4 +46,4 @@ for i in range(5):
                 print("you got 0 points")
         else:
             pass
-print(sum(tp))
+print("your total points out of 500 are=",sum(tp))
