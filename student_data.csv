@@ -1,7 +1,4 @@
-fname,lname,class,division,roll,id,english,urdu,maths,science
-Sayyad,Abdurrahman,9,A,905,54211,85,74,63,50
-Abdulraheman,Akhlaque Ahmed,9,A,32,10056,65,78,45,96
-Saad,Shaikh,9,A,33,20889,68,89,80,97
-Abdullah,Ansari,9th,A,35,10074,65,82,64,54
-Abuhanzala,Ajmal Khan,9,A,31,10064,45,79,35,54
-Anzar,Ajmal Khan,9,A,30,10068,46,68,46,37
+fname,lname,class,division,roll,id,english,urdu,maths,science,sst,hindi
+Abdulraheman,Akhlaque Ahmed,9,A,32,10095,96,85,79,92,98,81
+Abdulraheman,Ansari,9,A,33,10096,86,98,57,85,59,95
+Saad,Aslam Shaikh,9,A,34,10097,58,35,77,84,46,69

@@ -1,48 +1,62 @@
-
 from tkinter import *
 from tkinter import messagebox
 import csv
 
 
 def display_data():
-    with open("student_data.csv","r") as f1:
-        csvReader=csv.reader(f1)
+    with open("student_data.csv", "r") as f1:
+        csvReader = csv.reader(f1)
         next(csvReader)
         for x in csvReader:
             print(x)
-    
+
 
 def save_data():
-    
 
-    if fname.get()=="" or lname.get()=="" or sclass.get()=="" or division.get()=="" or rnumber.get()=="" or idnumber.get()=="" or  english.get()=="" or urdu.get()=="" or maths.get()=="" or science.get()=="":
-        messagebox.showerror("Alert!","All Fields must be filled!")
+    if fname.get() == "" or lname.get() == "" or sclass.get() == "" or division.get() == "" or rnumber.get() == "" or idnumber.get() == "" or english.get() == "" or urdu.get() == "" or maths.get() == "" or science.get() == "" or sst.get() == "" or hindi.get() == "":
+        messagebox.showerror("Alert!", "All Fields must be filled!")
     else:
         with open("student_data.csv", "a", newline="") as f1:
             csvWriter = csv.writer(f1)
             csvWriter.writerow([
                 fname.get(), lname.get(), sclass.get(), division.get(),
                 rnumber.get(), idnumber.get(), english.get(), urdu.get(),
-                maths.get(), science.get()
+                maths.get(), science.get(), sst.get(), hindi.get()
             ])
-        messagebox.showinfo("Success!","Data Stored!")
-        e1.delete(0,END)
-        e2.delete(0,END)
-        e3.delete(0,END)
-        e4.delete(0,END)
-        e5.delete(0,END)
-        e6.delete(0,END)
-        e7.delete(0,END)
-        e8.delete(0,END)
-        e10.delete(0,END)
-        e11.delete(0,END)
-        
+
+        messagebox.showinfo("Success!", "Data Stored!")
+
+        e1.delete(0, END)
+        e2.delete(0, END)
+        e3.delete(0, END)
+        e4.delete(0, END)
+        e5.delete(0, END)
+        e6.delete(0, END)
+        e7.delete(0, END)
+        e8.delete(0, END)
+        e9.delete(0, END)
+        e10.delete(0, END)
+        e11.delete(0, END)
+        e12.delete(0, END)
+
+
 
 
 table = Tk()
 table.title("Student Information System")
 table.resizable(False, False)
-table.configure(bg="#EAF2F8")
+
+
+bg_color = "#E8F4F8"
+header_color = "#123B5D"
+label_color = "#173F5F"
+entry_bg = "#FFFFFF"
+button_color = "#167D9A"
+button_hover = "#0B5D73"
+
+table.configure(bg=bg_color)
+
+
 
 fname = StringVar()
 lname = StringVar()
@@ -54,25 +68,20 @@ english = StringVar()
 urdu = StringVar()
 maths = StringVar()
 science = StringVar()
-
-bg_color = "#EAF2F8"
-header_color = "#1F4E78"
-label_color = "#163A5F"
-entry_bg = "#FFFFFF"
-button_color = "#2874A6"
-button_hover = "#1B4F72"
-
+sst = StringVar()
+hindi = StringVar()
 
 
 header = Label(
     table,
     text="STUDENT INFORMATION FORM",
-    font=("Calibri", 24, "bold"),
+    font=("Calibri", 25, "bold"),
     bg=header_color,
     fg="white",
-    padx=25,
-    pady=18
+    padx=30,
+    pady=20
 )
+
 header.grid(
     row=0,
     column=0,
@@ -83,8 +92,8 @@ header.grid(
 )
 
 
-
 def create_label(text, row, column):
+
     label = Label(
         table,
         text=text,
@@ -92,6 +101,7 @@ def create_label(text, row, column):
         bg=bg_color,
         fg=label_color
     )
+
     label.grid(
         row=row,
         column=column,
@@ -99,21 +109,24 @@ def create_label(text, row, column):
         pady=10,
         sticky="w"
     )
+
     return label
 
 
-
 def create_entry(variable, row, column):
+
     entry = Entry(
         table,
         font=("Calibri", 15),
         textvariable=variable,
         bg=entry_bg,
         fg="#17202A",
+        insertbackground="#167D9A",
         relief="solid",
         bd=1,
         width=18
     )
+
     entry.grid(
         row=row,
         column=column,
@@ -121,6 +134,7 @@ def create_entry(variable, row, column):
         pady=10,
         ipady=6
     )
+
     return entry
 
 
@@ -140,17 +154,19 @@ create_label("Roll Number", 3, 0)
 e11 = create_entry(rnumber, 3, 1)
 
 create_label("Student ID Number", 3, 2)
-e10 = create_entry(idnumber, 3, 3)
+e12 = create_entry(idnumber, 3, 3)
+
 
 marks_title = Label(
     table,
     text="SUBJECT MARKS",
-    font=("Calibri", 18, "bold"),
-    bg="#D6EAF8",
-    fg=header_color,
+    font=("Calibri", 19, "bold"),
+    bg="#BFE3F2",
+    fg="#123B5D",
     padx=15,
-    pady=8
+    pady=10
 )
+
 marks_title.grid(
     row=4,
     column=0,
@@ -159,6 +175,7 @@ marks_title.grid(
     padx=10,
     pady=(15, 5)
 )
+
 
 create_label("English Marks", 5, 0)
 e5 = create_entry(english, 5, 1)
@@ -172,10 +189,17 @@ e7 = create_entry(maths, 6, 1)
 create_label("Science Marks", 6, 2)
 e8 = create_entry(science, 6, 3)
 
+create_label("SST Marks", 7, 0)
+e9 = create_entry(sst, 7, 1)
+
+create_label("Hind Marks", 7, 2)
+e10 = create_entry(hindi, 7, 3)
+
+
 l9 = Button(
     table,
     text="  STORE DATA  ",
-    padx=25,
+    padx=30,
     pady=10,
     font=("Calibri", 17, "bold"),
     bg=button_color,
@@ -188,17 +212,18 @@ l9 = Button(
 )
 
 l9.grid(
-    row=7,
+    row=8,
     column=0,
     columnspan=2,
     padx=10,
     pady=(20, 20)
 )
 
+
 l10 = Button(
     table,
     text="  DISPLAY DATA  ",
-    padx=25,
+    padx=30,
     pady=10,
     font=("Calibri", 17, "bold"),
     bg=button_color,
@@ -211,7 +236,7 @@ l10 = Button(
 )
 
 l10.grid(
-    row=7,
+    row=8,
     column=2,
     columnspan=2,
     padx=10,
@@ -226,12 +251,14 @@ footer = Label(
     bg=bg_color,
     fg="#5D6D7E"
 )
+
 footer.grid(
-    row=8,
+    row=9,
     column=0,
     columnspan=4,
     pady=(0, 10)
 )
+
 
 table.mainloop()
 '''
@@ -242,6 +269,26 @@ with open("student_data.csv","w",newline="") as f1:
     csvWriter=csv.writer(f1)
     csvWriter.writerow(["fname","lname","class","division","roll","id","english","urdu","maths","science"])
     f1.close()
+
+with open("student_data.csv", "w", newline="") as f1:
+    csvWriter = csv.writer(f1)
+    csvWriter.writerow([
+        "fname", "lname", "class", "division", "roll", "id",
+        "english", "urdu", "maths", "science"
+    ])
+    f1.close()
+
+    print(fname.get())
+    print(lname.get())
+    print(sclass.get())
+    print(division.get())
+    print(rnumber.get())
+    print(idnumber.get())
+    print(english.get())
+    print(urdu.get())
+    print(maths.get())
+    print(science.get())
+
 
 
 def save_data():
@@ -316,25 +363,7 @@ e8.grid(row=4,column=3,padx=10,pady=10)
 l9=Button(table,text="Store Data",padx=20,font=("calibri",22,"bold"),command=save_data)
 l9.grid(row=5,column=1,padx=10,pady=10)
 table.mainloop()
-'''
-'''
-with open("student_data.csv", "w", newline="") as f1:
-    csvWriter = csv.writer(f1)
-    csvWriter.writerow([
-        "fname", "lname", "class", "division", "roll", "id",
-        "english", "urdu", "maths", "science"
-    ])
-    f1.close()
-'''
-'''
-    print(fname.get())
-    print(lname.get())
-    print(sclass.get())
-    print(division.get())
-    print(rnumber.get())
-    print(idnumber.get())
-    print(english.get())
-    print(urdu.get())
-    print(maths.get())
-    print(science.get())
+
+
+  
     '''
