@@ -10,6 +10,36 @@ def display_data():
         for x in csvReader:
             print(x)
 
+    window1=Tk()
+    window1.title("This is the display screen")
+    window1.geometry("1300x600")
+    #window1.resizable(FALSE,FALSE)
+    l1=Label(window1,text="Roll No",font=("Calibri", 25, "bold"))
+    l1.grid(row=0,column=0)
+    l2=Label(window1,text="First Name",font=("Calibri", 25, "bold"))
+    l2.grid(row=0,column=1)
+    l3=Label(window1,text="Last Name",font=("Calibri", 25, "bold"))
+    l3.grid(row=0,column=2)
+    l4=Label(window1,text="Class",font=("Calibri", 25, "bold"))
+    l4.grid(row=0,column=3)
+    l5=Label(window1,text="Division",font=("Calibri", 25, "bold"))
+    l5.grid(row=0,column=4)
+    l6=Label(window1,text="ID Number",font=("Calibri", 25, "bold"))
+    l6.grid(row=0,column=5)
+    l7=Label(window1,text="English",font=("Calibri", 25, "bold"))
+    l7.grid(row=0,column=6)
+    l8=Label(window1,text="Urdu",font=("Calibri", 25, "bold"))
+    l8.grid(row=0,column=7)
+    l9=Label(window1,text="Maths",font=("Calibri", 25, "bold"))
+    l9.grid(row=0,column=8)
+    l10=Label(window1,text="Science",font=("Calibri", 25, "bold"))
+    l10.grid(row=0,column=9)
+    l11=Label(window1,text="SST",font=("Calibri", 25, "bold"))
+    l11.grid(row=0,column=10)
+    l12=Label(window1,text="Hindi",font=("Calibri", 25, "bold"))
+    l12.grid(row=0,column=11)
+    window1.mainloop()
+
 
 def save_data():
 
