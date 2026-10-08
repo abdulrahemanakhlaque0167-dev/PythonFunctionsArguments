@@ -1,5 +1,8 @@
 fname,lname,class,division,roll,id,english,urdu,maths,science,sst,hindi
-Abdulraheman,Akhlaque Ahmed,9,A,32,10095,96,85,79,92,98,81
-Abdulraheman,Ansari,9,A,33,10096,86,98,57,85,59,95
-Saad,Aslam Shaikh,9,A,34,10097,58,35,77,84,46,69
-Abu Hanzala,Ajmal Khan,9,A,31,10093,45,56,55,64,65,33
+1,Abdulraheman,Akhlaque Ahmed,9,A,10097,98,80,97,91,87,95
+2,Saad,Aslam Shaikh,9,A,10099,58,86,79,59,85,68
+3,Abu Hanzala,Ajmal Khan,9,A,10096,96,78,86,67,87,57
+4,Anzar,Ajmal Khan,9,A,10098,85,65,65,86,52,36
+5,Ahsan,Jameel Maniyar,9,A,10100,86,85,75,69,46,49
+6,Zaid,Waseem,9,A,10046,97,67,86,96,59,90
+7,Amaan,Nadeem,9,A,10078,96,68,86,56,85,94
