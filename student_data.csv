@@ -1,8 +1,23 @@
-fname,lname,class,division,roll,id,english,urdu,maths,science,sst,hindi
-1,Abdulraheman,Akhlaque Ahmed,9,A,10097,98,80,97,91,87,95
-2,Saad,Aslam Shaikh,9,A,10099,58,86,79,59,85,68
-3,Abu Hanzala,Ajmal Khan,9,A,10096,96,78,86,67,87,57
-4,Anzar,Ajmal Khan,9,A,10098,85,65,65,86,52,36
-5,Ahsan,Jameel Maniyar,9,A,10100,86,85,75,69,46,49
-6,Zaid,Waseem,9,A,10046,97,67,86,96,59,90
-7,Amaan,Nadeem,9,A,10078,96,68,86,56,85,94
+fname,lname,class,division,roll,id,english,urdu,maths,science
+1,Abdulraheman,Akhlaque Ahmed,9,A,29642,86,97,90,95,91,94
+2,Ayaan,Khan,9,A,48216,85,78,92,88,81,90
+3,Zaid,Sheikh,9,A,57391,76,89,84,91,80,87
+4,Rehan,Ansari,9,A,61428,90,86,79,83,94,88
+5,Arman,Siddiqui,9,A,29517,82,91,87,76,85,89
+6,Sameer,Qureshi,9,A,73842,88,80,93,85,78,91
+7,Faizan,Pathan,9,A,46193,79,84,88,92,86,80
+8,Ibrahim,Malik,9,A,82514,94,89,91,87,83,95
+9,Hamza,Farooqui,9,A,35682,81,77,85,90,88,84
+10,Yusuf,Mirza,9,A,91735,87,93,80,86,91,89
+11,Bilal,Hashmi,9,A,64281,75,82,89,84,90,78
+12,Saad,Chaudhary,9,A,28469,91,88,86,79,93,85
+13,Omar,Memon,9,A,57136,84,90,82,88,77,92
+14,Danish,Akhtar,9,A,49372,89,85,94,81,86,90
+15,Adnan,Kazi,9,A,81625,78,91,83,87,89,82
+16,Taha,Abbasi,9,A,36741,92,84,90,93,81,88
+17,Imran,Shaikh,9,A,72583,86,79,88,91,85,94
+18,Noman,Usmani,9,A,53914,80,87,92,85,90,83
+19,Rizwan,Attar,9,A,18476,93,82,86,89,84,91
+20,Shayan,Merchant,9,A,65829,85,94,81,90,87,79
+21,Khalid,Barakzai,9,A,39265,88,86,95,82,91,8422,Saad,Aslam Sheikh,9,A,34875,57,97,98,75,87,68
+22,Saad,Shaikh Aslam,9,A,84395,84,85,92,75,82,34
