@@ -1,4 +1,6 @@
-import random
+import random 
+import sys
+sys.set_int_max_str_digits(43000)
 e=int(input("enter a number to make it square,cube and table of the number: "))
 sq=e*e
 c=e*e*e
