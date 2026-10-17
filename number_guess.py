@@ -2,11 +2,10 @@ import random
 print("welcome to the number guessing game")
 print("try to guess it as early as possible")
 h=int(input("enter the the number from 1 to anything you want in which the number will generate that you have to guess: "))
-q=int(input("enter the number of  attemps you want: "))
 f=random.randint(1,h)
 
 
-for i in range(q):
+for i in range(100):
     g=int(input("enter the guess: "))
     if g==f:
         print("congratulations you won")
