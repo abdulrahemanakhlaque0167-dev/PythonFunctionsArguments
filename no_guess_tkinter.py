@@ -3,9 +3,6 @@ from tkinter import *
 import random
 from tkinter import messagebox
 
-# ============================================================
-# GAME LOGIC (ORIGINAL LOGIC PRESERVED)
-# ============================================================
 
 l = random.randint(1, 100)
 
@@ -26,8 +23,7 @@ def noguess():
                 "Congratulations!",
                 "🎉 You Won!\n\nYou guessed the correct number!"
             )
-            w.destroy()  # Close after clicking OK
-
+            w.destroy() 
         elif g >= l:
             messagebox.showinfo(
                 "Go Lower",
@@ -52,9 +48,6 @@ def noguess():
         e1.focus_set()
 
 
-# ============================================================
-# MAIN WINDOW
-# ============================================================
 
 w = Tk()
 w.geometry("800x600")
@@ -63,10 +56,6 @@ w.resizable(FALSE, FALSE)
 w.configure(bg="#EAF4F8")
 
 guess = StringVar()
-
-# ============================================================
-# HEADER
-# ============================================================
 
 header = Frame(w, bg="#123B5D", height=130)
 header.pack(fill=X)
@@ -88,10 +77,6 @@ subtitle = Label(
     fg="#D6EAF8"
 )
 subtitle.pack()
-
-# ============================================================
-# GAME CARD
-# ============================================================
 
 card = Frame(
     w,
@@ -127,10 +112,6 @@ e1 = Entry(
 e1.pack(ipady=10, pady=10)
 e1.focus_set()
 
-# ============================================================
-# GUESS BUTTON
-# ============================================================
-
 def on_enter(event):
     b1.config(bg="#0B5D73")
 
@@ -158,12 +139,9 @@ b1.pack(pady=25)
 b1.bind("<Enter>", on_enter)
 b1.bind("<Leave>", on_leave)
 
-# Press Enter to submit a guess
+
 w.bind("<Return>", lambda event: noguess())
 
-# ============================================================
-# FOOTER
-# ============================================================
 
 footer = Label(
     w,

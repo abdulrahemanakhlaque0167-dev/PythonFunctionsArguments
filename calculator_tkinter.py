@@ -9,7 +9,7 @@ def add():
     ab = (a + b)
 
     w1 = Tk()
-    w1.geometry("800x600")
+    w1.geometry("1000x1000")
     w1.title("Result for Addition")
     w1.resizable(FALSE, FALSE)
     w1.configure(bg="#F4F8FB")
@@ -42,7 +42,7 @@ def sub():
     ab = (a - b)
 
     w1 = Tk()
-    w1.geometry("800x600")
+    w1.geometry("1000x1000")
     w1.title("Result for Subtraction")
     w1.resizable(FALSE, FALSE)
     w1.configure(bg="#FFF8F0")
@@ -75,7 +75,7 @@ def mul():
     ab = (a * b)
 
     w1 = Tk()
-    w1.geometry("1000x1000")
+    w1.geometry("1350x1350")
     w1.title("Result for Multiplication")
     w1.resizable(FALSE, FALSE)
     w1.configure(bg="#FAF5FC")
@@ -93,7 +93,7 @@ def mul():
         w1,
         text=ab,
         font=("Calibri", 30, "bold"),
-        bg="#FAF5FC",
+        bg="#F5FCF9",
         fg="#9C27B0"
     )
     m2.grid(row=0, column=1, padx=20)
