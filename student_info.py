@@ -14,7 +14,46 @@ except ImportError:
     REPORTLAB_AVAILABLE = False
 
 
-def generate_pdf_report(student_name, roll_no, marks_dict, total, percentage, parent_window):
+def calculate_class_rank(roll_no, current_total=None):
+    """
+    Returns (rank, student_count) based on total marks across all valid
+    students in student_data.csv. Students with equal totals share the same rank.
+    """
+    totals = []
+
+    try:
+        with open("student_data.csv", "r", newline="") as file:
+            reader = csv.reader(file)
+            next(reader, None)  # Skip CSV header
+
+            for row in reader:
+                if len(row) < 12:
+                    continue
+
+                try:
+                    marks = [float(row[i]) for i in range(6, 12)]
+                    if any(mark < 0 or mark > 100 for mark in marks):
+                        continue
+                    totals.append((row[0].strip(), sum(marks)))
+                except (ValueError, TypeError):
+                    continue
+    except FileNotFoundError:
+        return None, 0
+
+    if current_total is None:
+        for saved_roll, saved_total in totals:
+            if saved_roll == str(roll_no).strip():
+                current_total = saved_total
+                break
+
+    if current_total is None:
+        return None, len(totals)
+
+    rank = 1 + sum(1 for _, total_marks in totals if total_marks > current_total)
+    return rank, len(totals)
+
+
+def generate_pdf_report(student_name, roll_no, marks_dict, total, percentage, rank, student_count, parent_window):
     """Generates a professional PDF report for a student using ReportLab."""
     if not REPORTLAB_AVAILABLE:
         messagebox.showerror(
@@ -53,6 +92,10 @@ def generate_pdf_report(student_name, roll_no, marks_dict, total, percentage, pa
         c.setFont("Helvetica-Bold", 14)
         c.drawString(40, height - 140, f"Student Name: {student_name}")
         c.drawString(40, height - 165, f"Roll Number: {roll_no}")
+        c.drawString(
+            40, height - 190,
+            f"CLASS RANK: {rank if rank is not None else 'N/A'} / {student_count}"
+        )
 
         # Draw Table Headers
         c.setFillColorRGB(0.75, 0.89, 0.95)  # #BFE3F2
@@ -370,6 +413,18 @@ def display_data():
             fg="#123B5D"
         ).pack(pady=4)
 
+        rank, student_count = calculate_class_rank(roll_no)
+
+        Label(
+            result_window,
+            text=f"CLASS RANK: {rank if rank is not None else 'N/A'} / {student_count}",
+            font=("Calibri", 13, "bold"),
+            bg="#BFE3F2",
+            fg="#123B5D",
+            padx=12,
+            pady=5
+        ).pack(pady=5)
+
         try:
             subject_names = [
                 "English",
@@ -467,7 +522,8 @@ def display_data():
             padx=20,
             pady=7,
             command=lambda: generate_pdf_report(
-                student_full_name, roll_no, marks_dict, total, percentage, result_window
+                student_full_name, roll_no, marks_dict, total, percentage,
+                rank, student_count, result_window
             )
         ).pack(pady=4)
 
@@ -638,6 +694,7 @@ def show_result():
                             )
 
                             percentage = (total_marks / 600) * 100
+                            rank, student_count = calculate_class_rank(student_roll, total_marks)
 
                             subject_names = [
                                 "English",
@@ -680,6 +737,16 @@ def show_result():
                                 bg="#EAF4F8",
                                 fg="#17202A"
                             ).pack(pady=2)
+
+                            Label(
+                                result_area,
+                                text=f"CLASS RANK: {rank if rank is not None else 'N/A'} / {student_count}",
+                                font=("Calibri", 13, "bold"),
+                                bg="#BFE3F2",
+                                fg="#123B5D",
+                                padx=15,
+                                pady=5
+                            ).pack(pady=5)
 
                             marks_frame = Frame(
                                 result_area,
@@ -746,7 +813,8 @@ def show_result():
                                 padx=25,
                                 pady=6,
                                 command=lambda: generate_pdf_report(
-                                    student_full_name, student_roll, marks_dict, total_marks, percentage, result_window
+                                    student_full_name, student_roll, marks_dict, total_marks, percentage,
+                                    rank, student_count, result_window
                                 )
                             ).pack(pady=4)
 
@@ -805,6 +873,231 @@ def show_result():
     ).pack(pady=(2, 10))
 
     roll_entry.focus()
+
+
+
+def class_result_analysis():
+    """Show overall class KPIs, subject averages, and top 3 performers."""
+    subject_names = ["English", "Urdu", "Maths", "Science", "SST", "Hindi"]
+    students = []
+
+    try:
+        with open("student_data.csv", "r", newline="") as file:
+            reader = csv.reader(file)
+            next(reader, None)  # Skip the header
+
+            for row in reader:
+                if len(row) < 12:
+                    continue
+
+                try:
+                    marks = [float(row[i]) for i in range(6, 12)]
+                    if any(mark < 0 or mark > 100 for mark in marks):
+                        continue
+                except (ValueError, TypeError):
+                    continue
+
+                total = sum(marks)
+                students.append({
+                    "roll": row[0].strip(),
+                    "first": row[1].strip(),
+                    "last": row[2].strip(),
+                    "name": f"{row[1].strip()} {row[2].strip()}".strip(),
+                    "marks": marks,
+                    "total": total,
+                    "percentage": total / 600 * 100
+                })
+
+    except FileNotFoundError:
+        messagebox.showerror("File Error", "student_data.csv was not found!")
+        return
+
+    if not students:
+        messagebox.showinfo(
+            "No Data",
+            "There are no valid student records to analyse. Please store student data first."
+        )
+        return
+
+    analysis_window = Toplevel(table)
+    analysis_window.title("Overall Class Result Analysis")
+    analysis_window.geometry("1000x760")
+    analysis_window.configure(bg="#EAF4F8")
+    analysis_window.minsize(850, 650)
+
+    header = Label(
+        analysis_window,
+        text="OVERALL CLASS RESULT ANALYSIS",
+        font=("Calibri", 24, "bold"),
+        bg="#123B5D",
+        fg="white",
+        pady=16
+    )
+    header.pack(fill=X, padx=15, pady=(15, 10))
+
+    # ---------------- KPI CARDS ----------------
+    total_marks_list = [student["total"] for student in students]
+    average_total = sum(total_marks_list) / len(students)
+    highest_total = max(total_marks_list)
+    lowest_total = min(total_marks_list)
+
+    kpi_frame = Frame(analysis_window, bg="#EAF4F8")
+    kpi_frame.pack(fill=X, padx=15, pady=8)
+
+    kpis = [
+        ("NUMBER OF STUDENTS", f"{len(students)}"),
+        ("AVERAGE TOTAL MARKS", f"{average_total:.2f} / 600"),
+        ("HIGHEST MARKS", f"{highest_total:g} / 600"),
+        ("LOWEST MARKS", f"{lowest_total:g} / 600")
+    ]
+
+    for index, (title_text, value_text) in enumerate(kpis):
+        card = Frame(
+            kpi_frame,
+            bg="white",
+            bd=1,
+            relief="solid",
+            padx=8,
+            pady=12
+        )
+        card.grid(row=0, column=index, padx=5, sticky="nsew")
+        kpi_frame.grid_columnconfigure(index, weight=1, uniform="kpi")
+
+        Label(
+            card,
+            text=title_text,
+            font=("Calibri", 10, "bold"),
+            bg="white",
+            fg="#123B5D",
+            wraplength=190
+        ).pack(pady=(0, 8))
+
+        Label(
+            card,
+            text=value_text,
+            font=("Calibri", 16, "bold"),
+            bg="white",
+            fg="#167D9A"
+        ).pack()
+
+    # ---------------- SUBJECT-WISE AVERAGES ----------------
+    subject_frame = Frame(
+        analysis_window,
+        bg="white",
+        bd=1,
+        relief="solid"
+    )
+    subject_frame.pack(fill=X, padx=20, pady=10)
+
+    Label(
+        subject_frame,
+        text="SUBJECT-WISE AVERAGE MARKS",
+        font=("Calibri", 15, "bold"),
+        bg="#BFE3F2",
+        fg="#123B5D",
+        pady=8
+    ).pack(fill=X)
+
+    subject_table = ttk.Treeview(
+        subject_frame,
+        columns=("subject", "average"),
+        show="headings",
+        height=6
+    )
+    subject_table.heading("subject", text="Subject")
+    subject_table.heading("average", text="Average Marks (out of 100)")
+    subject_table.column("subject", anchor=CENTER, width=350)
+    subject_table.column("average", anchor=CENTER, width=350)
+    subject_table.pack(fill=X, padx=10, pady=8)
+
+    for index, subject in enumerate(subject_names):
+        average = sum(student["marks"][index] for student in students) / len(students)
+        subject_table.insert("", END, values=(subject, f"{average:.2f} / 100"))
+
+    # ---------------- TOP 3 PERFORMERS ----------------
+    top_frame = Frame(
+        analysis_window,
+        bg="white",
+        bd=1,
+        relief="solid"
+    )
+    top_frame.pack(fill=BOTH, expand=True, padx=20, pady=(2, 10))
+
+    Label(
+        top_frame,
+        text="TOP 3 PERFORMERS OF THE CLASS",
+        font=("Calibri", 15, "bold"),
+        bg="#BFE3F2",
+        fg="#123B5D",
+        pady=8
+    ).pack(fill=X)
+
+    top_table = ttk.Treeview(
+        top_frame,
+        columns=("rank", "roll", "name", "total", "percentage"),
+        show="headings",
+        height=3
+    )
+
+    top_headers = {
+        "rank": ("Rank", 80),
+        "roll": ("Roll No", 100),
+        "name": ("Student Name", 280),
+        "total": ("Total Marks / 600", 180),
+        "percentage": ("Percentage", 150)
+    }
+
+    for column, (heading_text, width) in top_headers.items():
+        top_table.heading(column, text=heading_text)
+        top_table.column(column, width=width, anchor=CENTER)
+
+    top_table.pack(fill=BOTH, expand=True, padx=10, pady=8)
+
+    sorted_students = sorted(
+        students,
+        key=lambda student: (-student["total"], student["name"].lower(), student["roll"])
+    )
+
+    for index, student in enumerate(sorted_students[:3]):
+        # Equal totals share the same rank.
+        rank = 1 + sum(
+            1 for other in students if other["total"] > student["total"]
+        )
+        top_table.insert(
+            "",
+            END,
+            values=(
+                rank,
+                student["roll"],
+                student["name"],
+                f'{student["total"]:g}',
+                f'{student["percentage"]:.2f}%'
+            )
+        )
+
+    Label(
+        analysis_window,
+        text="Analysis is calculated from valid student marks currently saved in student_data.csv.",
+        font=("Calibri", 10, "italic"),
+        bg="#EAF4F8",
+        fg="#5D6D7E"
+    ).pack(pady=(0, 5))
+
+    Button(
+        analysis_window,
+        text="CLOSE",
+        font=("Calibri", 12, "bold"),
+        bg="#123B5D",
+        fg="white",
+        activebackground="#0B5D73",
+        activeforeground="white",
+        relief="flat",
+        cursor="hand2",
+        padx=30,
+        pady=7,
+        command=analysis_window.destroy
+    ).pack(pady=(0, 12))
+
 
 
 def save_data():
@@ -870,7 +1163,7 @@ def save_data():
 
 table = Tk()
 table.title("Student Information System")
-table.geometry("850x720")
+table.geometry("850x740")
 table.resizable(False, False)
 
 bg_color = "#EAF4F8"
@@ -988,7 +1281,7 @@ button_frame.grid(row=8, column=0, columnspan=4, pady=(25, 20))
 l9 = Button(
     button_frame,
     text="STORE DATA",
-    padx=25,
+    padx=20,
     pady=10,
     font=("Calibri", 15, "bold"),
     bg=button_color,
@@ -1004,7 +1297,7 @@ l9.grid(row=0, column=0, padx=15)
 l10 = Button(
     button_frame,
     text="DISPLAY DATA",
-    padx=15,
+    padx=20,
     pady=10,
     font=("Calibri", 15, "bold"),
     bg=button_color,
@@ -1019,7 +1312,7 @@ l10.grid(row=0, column=1, padx=15)
 
 result_button = Button(
     button_frame,
-    text="RESULT BY ROLL",
+    text="CHECK RESULT",
     padx=20,
     pady=10,
     font=("Calibri", 15, "bold"),
@@ -1031,7 +1324,23 @@ result_button = Button(
     cursor="hand2",
     command=show_result
 )
-result_button.grid(row=0, column=2, padx=15)
+result_button.grid(row=0, column=2, padx=10)
+
+analysis_button = Button(
+    button_frame,
+    text="RESULT ANALYSIS",
+    padx=20,
+    pady=10,
+    font=("Calibri", 15, "bold"),
+    bg="#167D9A",
+    fg="white",
+    activebackground="#0B5D73",
+    activeforeground="white",
+    relief="flat",
+    cursor="hand2",
+    command=class_result_analysis
+)
+analysis_button.grid(row=0, column=3, padx=10)
 
 footer = Label(
     table,
