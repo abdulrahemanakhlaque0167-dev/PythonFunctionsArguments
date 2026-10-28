@@ -196,7 +196,8 @@ def restart_game():
     restart_button.grid_remove()
     show_riddle()
 
-
+def close():
+    r.destroy()
 # ============================================================
 # MAIN WINDOW
 # ============================================================
@@ -397,6 +398,24 @@ restart_button = Button(
     pady=10,
     command=restart_game
 )
+
+close_button = Button(
+    button_frame,
+    text="CLOSE THE GAME",
+    font=("Calibri", 14, "bold"),
+    bg=DARK_BLUE,
+    fg=WHITE,
+    activebackground=HOVER_BLUE,
+    activeforeground=WHITE,
+    relief=FLAT,
+    cursor="hand2",
+    padx=20,
+    pady=12,
+    command=close
+)
+
+close_button.grid(row=0, column=2, padx=10)
+
 # Place restart button below check/next buttons and hide it initially
 restart_button.grid(row=1, column=0, columnspan=2, pady=10)
 restart_button.grid_remove()
