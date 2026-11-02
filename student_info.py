@@ -1087,7 +1087,7 @@ def class_result_analysis():
         analysis_window,
         text="CLOSE",
         font=("Calibri", 12, "bold"),
-        bg="#123B5D",
+        bg="#174F7C",
         fg="white",
         activebackground="#0B5D73",
         activeforeground="white",
