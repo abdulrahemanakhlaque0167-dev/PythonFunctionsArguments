@@ -1,3 +1,4 @@
+'''
 from tkinter import *
 
 
@@ -9,7 +10,7 @@ def add():
     ab = (a + b)
 
     w1 = Tk()
-    w1.geometry("1000x1000")
+    w1.geometry("1350x1350")
     w1.title("Result for Addition")
     w1.resizable(FALSE, FALSE)
     w1.configure(bg="#F4F8FB")
@@ -42,7 +43,7 @@ def sub():
     ab = (a - b)
 
     w1 = Tk()
-    w1.geometry("1000x1000")
+    w1.geometry("1350x1350")
     w1.title("Result for Subtraction")
     w1.resizable(FALSE, FALSE)
     w1.configure(bg="#FFF8F0")
@@ -222,7 +223,8 @@ b3.grid(row=4, column=0, columnspan=2, pady=10)
 c.mainloop()
 
 
-'''from tkinter import *
+'''
+from tkinter import *
 def add():
     a=int(num1.get())
     b=int(num2.get())
@@ -289,4 +291,4 @@ b2.grid(row=2,column=1)
 b3=Button(c,text="Click to Multiply",font=("Calibri",25,"bold"),command=mul)
 b3.grid(row=3,column=0)
 
-c.mainloop()'''
+c.mainloop()
