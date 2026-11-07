@@ -16,7 +16,6 @@ if x=='left':
             print("you chose the deadly path")
             print("there were tigers who attacked you")
             print("you died")
-            print("congratulations, you made your way out safely")
         else:
             print("something went wrong")
     elif i=='attack':

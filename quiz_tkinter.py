@@ -21,9 +21,19 @@ e=["What is the capital of India?",
    "Which language are we using to make this game?"
 ]
 
-m=["Which is the largest ocean on Earth?","What is the square root of 144?","Which animal is known as the 'Ship of the Desert?'","How many bones does an adult human usually have?","Which planet has the most famous ring system?"]
+m=["Which is the largest ocean on Earth?",
+   "What is the square root of 144?",
+   "Which animal is known as the 'Ship of the Desert?'",
+   "How many bones does an adult human usually have?",
+   "Which planet has the most famous ring system?"
+]
 
-d=["If you have 3 apples and take away 2, how many apples do you have?","Which country gifted the Statue of Liberty to the United States?","What is the only even prime number?","A train travels 60 km in 1 hour. How far will it travel in 2 hours and 30 minutes?","Which is the smallest country in the world by area?"]
+d=["If you have 3 apples and take away 2, how many apples do you have?",
+   "Which country gifted the Statue of Liberty to the United States?",
+   "What is the only even prime number?",
+   "A train travels 60 km in 1 hour. How far will it travel in 2 hours and 30 minutes?",
+   "Which is the smallest country in the world by area?"
+]
 
 
 def easy():
@@ -244,7 +254,7 @@ b1=Button(
     bg=BLUE,
     fg=WHITE,
     width=25,
-    activebackground="#047857",
+    activebackground="#05B8FF",
     command=easy
 )
 b1.grid(row=1,column=0,pady=15)
@@ -270,7 +280,7 @@ b3=Button(
     bg=BLUE,
     fg=WHITE,
     width=25,
-    activebackground="#7E22CE",
+    activebackground="#006EFF",
     command=hard
 )
 b3.grid(row=3,column=0,pady=15)

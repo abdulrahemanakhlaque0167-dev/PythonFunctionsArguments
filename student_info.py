@@ -1218,7 +1218,7 @@ def create_entry(variable, row, column):
         font=("Calibri", 14),
         textvariable=variable,
         bg=entry_bg,
-        fg="#17202A",
+        fg="#0E77EE",
         insertbackground=button_color,
         relief="solid",
         bd=1,

@@ -434,7 +434,8 @@ show_riddle()
 
 r.mainloop()
 
-'''from tkinter import *
+'''f
+from tkinter import *
 from tkinter import messagebox
 import random
 
@@ -490,4 +491,5 @@ e1.grid(row=1,column=1)
 
 b1=Button(r,text="press to guess",font=("Calibri",25,"bold"),command=button)
 b1.grid(row=2,column=0,padx=20,pady=20)
-r.mainloop()'''
+r.mainloop()
+'''
