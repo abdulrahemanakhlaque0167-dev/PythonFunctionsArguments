@@ -5,6 +5,7 @@ if a<=1909:
     print("although your age is",h)
 elif a>2026:
     print("how can you be born after 2026 ")
+    print("so you have",h,"years to be born")
 elif a==2026 or a==2025 or a==2024:
     print("if you were born in",a,"it mean you just got born and started using python!!")
     print("although your age is",h)
