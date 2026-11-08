@@ -268,10 +268,6 @@ Python-Programming/
 │   ├── student_system.py
 │   └── football_game.py
 │
-├── Games/
-│   ├── snake_game.py
-│   ├── ping_pong.py
-│   └── number_guessing.py
 │
 ├── Database/
 │   └── mysql_projects.py
