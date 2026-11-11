@@ -14,6 +14,7 @@ GREEN = "#6EE7B7"
 DARK = "#1E3A5F"
 TEXT = "#334155"
 LIGHT_BLUE = "#DBEAFE"
+RED = "#EF4444"
 
 
 # ==============================
@@ -69,8 +70,6 @@ def result_window(title, heading, result):
         font=("Calibri", 15, "bold"),
         bg=BLUE,
         fg="white",
-        activebackground="#3B82F6",
-        activeforeground="white",
         relief=FLAT,
         width=15,
         command=x.destroy
@@ -173,8 +172,15 @@ def table():
 # ==============================
 
 def clear():
-
     no.set("")
+
+
+# ==============================
+# CLOSE APPLICATION
+# ==============================
+
+def close_application():
+    root.destroy()
 
 
 # ==============================
@@ -189,7 +195,9 @@ root.resizable(False, False)
 root.configure(bg=BG)
 
 
+# ==============================
 # MAIN HEADING
+# ==============================
 
 Label(
     root,
@@ -197,7 +205,7 @@ Label(
     font=("Calibri", 30, "bold"),
     bg=BG,
     fg=DARK
-).pack(pady=(35, 5))
+).pack(pady=(20, 5))
 
 
 Label(
@@ -209,16 +217,18 @@ Label(
 ).pack(pady=5)
 
 
+# ==============================
 # MAIN CARD
+# ==============================
 
 card = Frame(
     root,
     bg=CARD,
     padx=40,
-    pady=30
+    pady=20
 )
 
-card.pack(pady=30)
+card.pack(pady=15)
 
 
 Label(
@@ -227,7 +237,7 @@ Label(
     font=("Calibri", 19, "bold"),
     bg=CARD,
     fg=DARK
-).pack(pady=10)
+).pack(pady=8)
 
 
 # INPUT VARIABLE
@@ -249,10 +259,12 @@ e1 = Entry(
     bd=5
 )
 
-e1.pack(pady=15)
+e1.pack(pady=10)
 
 
-# BUTTONS
+# ==============================
+# CALCULATION BUTTONS
+# ==============================
 
 Button(
     card,
@@ -264,9 +276,9 @@ Button(
     activeforeground="white",
     relief=FLAT,
     width=23,
-    pady=8,
+    pady=6,
     command=square
-).pack(pady=8)
+).pack(pady=5)
 
 
 Button(
@@ -279,9 +291,9 @@ Button(
     activeforeground="white",
     relief=FLAT,
     width=23,
-    pady=8,
+    pady=6,
     command=cube
-).pack(pady=8)
+).pack(pady=5)
 
 
 Button(
@@ -294,9 +306,9 @@ Button(
     activeforeground=DARK,
     relief=FLAT,
     width=25,
-    pady=8,
+    pady=6,
     command=table
-).pack(pady=8)
+).pack(pady=5)
 
 
 Button(
@@ -308,11 +320,33 @@ Button(
     activebackground="#FCA5A5",
     relief=FLAT,
     width=23,
-    pady=8,
+    pady=6,
     command=clear
+).pack(pady=5)
+
+
+# ==============================
+# CLOSE APPLICATION BUTTON
+# ==============================
+
+Button(
+    root,
+    text="CLOSE APPLICATION",
+    font=("Calibri", 16, "bold"),
+    bg="#9C4C4C",
+    fg="white",
+    activebackground="#702020",
+    activeforeground="white",
+    relief=FLAT,
+    width=23,
+    pady=8,
+    command=close_application
 ).pack(pady=8)
 
+
+# ==============================
 # FOOTER
+# ==============================
 
 Label(
     root,
@@ -322,5 +356,9 @@ Label(
     fg=TEXT
 ).pack(pady=5)
 
+
+# ==============================
+# RUN APPLICATION
+# ==============================
 
 root.mainloop()
