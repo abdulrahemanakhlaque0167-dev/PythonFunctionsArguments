@@ -1167,11 +1167,11 @@ table.geometry("850x740")
 table.resizable(False, False)
 
 bg_color = "#EAF4F8"
-header_color = "#123B5D"
+header_color = "#167D9A"
 label_color = "#173F5F"
 entry_bg = "#FFFFFF"
 button_color = "#167D9A"
-button_hover = "#011A20"
+button_hover = "#167D9A"
 
 table.configure(bg=bg_color)
 
@@ -1334,7 +1334,7 @@ analysis_button = Button(
     font=("Calibri", 15, "bold"),
     bg="#167D9A",
     fg="white",
-    activebackground="#0B5D73",
+    activebackground="#167D9A",
     activeforeground="white",
     relief="flat",
     cursor="hand2",
