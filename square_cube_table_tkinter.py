@@ -287,7 +287,7 @@ Button(
 Button(
     card,
     text="SHOW MULTIPLICATION TABLE",
-    font=("Calibri", 15, "bold"),
+    font=("Calibri", 17, "bold"),
     bg=GREEN,
     fg=DARK,
     activebackground="#34D399",

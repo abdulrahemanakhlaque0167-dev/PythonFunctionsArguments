@@ -104,7 +104,7 @@ def mul():
 
 c = Tk()
 c.geometry("800x600")
-c.title("Calculator")
+c.title("Simple GUI Calculator")
 c.resizable(FALSE, FALSE)
 c.configure(bg="#F4F7FA")
 
