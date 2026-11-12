@@ -12,7 +12,7 @@ e1.grid(row=0,column=1)
 l2=Label(x,text="Enter your email:",font=("Calibri",18,"bold"))
 l2.grid(row=1,column=0)
 e2=Entry(x,font=("Calibri",14,"bold"))
-e2.grid(row=1,column=1)
+e2.grid(row=1,column=1) 
 
 b1=Button(x,text="Submit",padx=20,font=("Arial",16,"bold"))
 b1.grid(row=2,column=1,pady=10)

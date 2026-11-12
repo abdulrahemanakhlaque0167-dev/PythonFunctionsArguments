@@ -13,7 +13,7 @@ for i in range(g,0,-1):
 
 h=int(input("enter the number for loop to run: "))
 n=1
-for i in range(1,h+1):
+for i in range(1,h+1): 
     for j in range(i):
         print(n,end=' ')
         n+=1

@@ -13,7 +13,7 @@ for i in range(100):
         break
     elif g>=f:
         print("your guess is high, go lower")
-    else:
+    else: 
         print("your guess is low, go higher")
 else:
     print("you lost")

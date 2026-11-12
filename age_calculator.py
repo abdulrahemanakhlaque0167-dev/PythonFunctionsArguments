@@ -12,3 +12,4 @@ elif a==2026 or a==2025 or a==2024:
 else:
     print("if you were born in the year",a,"your age is",h)
     
+    

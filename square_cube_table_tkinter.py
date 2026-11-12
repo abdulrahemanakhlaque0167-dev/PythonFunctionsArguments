@@ -290,7 +290,7 @@ Button(
     activebackground="#8B5CF6",
     activeforeground="white",
     relief=FLAT,
-    width=23,
+    width=23, 
     pady=6,
     command=cube
 ).pack(pady=5)

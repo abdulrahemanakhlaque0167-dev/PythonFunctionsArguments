@@ -188,4 +188,4 @@ e1=Entry(w,font=("calibri",25,"bold"),textvariable=guess)
 e1.grid(row=0,column=1,padx=20,pady=20)
 b1=Button(w,text="CLICK FOR GUESS",font=("Calibri",25,"bold"),command=noguess)
 b1.grid(row=1,column=0,padx=20,pady=20)
-w.mainloop()'''
+w.mainloop()''' 

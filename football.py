@@ -13,4 +13,4 @@ for i in range(5):
         goal+=1
     else:
         print("you were said to write left,right or centre")
-print("you got",goal,"points out of 5")
+print("you got",goal,"points out of 5") 

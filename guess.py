@@ -9,7 +9,7 @@ while True:
     g=(input("enter a alphabet to guess: "))
     x.append(g)
     if g!=l:
-        print("wrong")
+        print("wrong") 
     elif g==l:
         print("congratulation you won!")
         break

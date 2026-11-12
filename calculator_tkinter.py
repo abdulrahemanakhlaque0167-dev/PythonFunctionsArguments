@@ -292,4 +292,4 @@ b3=Button(c,text="Click to Multiply",font=("Calibri",25,"bold"),command=mul)
 b3.grid(row=3,column=0)
 
 c.mainloop()
-'''
+''' 

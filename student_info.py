@@ -933,7 +933,7 @@ def class_result_analysis():
         fg="white",
         pady=16
     )
-    header.pack(fill=X, padx=15, pady=(15, 10))
+    header.pack(fill=X, padx=15, pady=(15, 10)) 
 
     # ---------------- KPI CARDS ----------------
     total_marks_list = [student["total"] for student in students]

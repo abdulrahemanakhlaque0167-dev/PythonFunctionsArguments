@@ -43,7 +43,7 @@ def shoot(direction):
 
     result_label.config(
         text=f"GOALKEEPER DIVED: {goalkeeper}",
-        fg=YELLOW
+        fg=YELLOW 
     )
 
     if direction == goalkeeper:

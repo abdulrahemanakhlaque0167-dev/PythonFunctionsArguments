@@ -12,4 +12,4 @@ for i in range(10):
         print("it is a consonent!")
         consonent.append(v)
 print("vowels are=",vowel)
-print("consonents are=",consonent)
+print("consonents are=",consonent) 

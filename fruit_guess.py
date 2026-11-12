@@ -9,7 +9,7 @@ f=[
     "blueberry", "blackberry",  "muskmelon", "tangerine"
 ]
 for i in range(5):
-    l=random.choice(f)
+    l=random.choice(f) 
     k=100
     for i in range(5):
         g=input("enter your guess: ")

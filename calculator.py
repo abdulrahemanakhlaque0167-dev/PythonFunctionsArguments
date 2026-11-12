@@ -163,6 +163,6 @@ elif x==10:
     else:
         print("it is not among m,s,a or d")
 else:
-    print("not completed or error occured")
+    print("not completed or error occured") 
 
 

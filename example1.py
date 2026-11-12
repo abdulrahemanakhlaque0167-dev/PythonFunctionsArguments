@@ -11,7 +11,7 @@ screen.tracer(0)
 
 # Snake head
 head = turtle.Turtle()
-head.shape("square")
+head.shape("square") 
 head.color("green")
 head.penup()
 head.goto(0, 0)

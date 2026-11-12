@@ -42,7 +42,7 @@ elif x=='right':
             u=input("enter f to fight back or h to hide: ")
             if u=='f':
                 print("you tried to fight back and died")
-            elif u=='h':
+            elif u=='h': 
                 print("you tried to hide but he found you")
                 print("he picked you up and hit you on the head")
                 print("you died")

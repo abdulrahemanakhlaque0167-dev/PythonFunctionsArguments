@@ -273,7 +273,7 @@ Python-Programming/
 │   └── mysql_projects.py
 │
 └── Practice/
-    └── practice_programs.py
+    └── practice_programs.py 
 ```
 
 ---
