@@ -16,6 +16,9 @@ if x=='left':
             print("you chose the deadly path")
             print("there were tigers who attacked you")
             print("you died")
+        elif v=='two':
+            print("You chose the safe gate!")
+            print("you escaped from the jungle safely!")
         else:
             print("something went wrong")
     elif i=='attack':
